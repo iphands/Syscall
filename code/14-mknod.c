@@ -7,7 +7,7 @@
 int main()
 {
 
-  
+  mknod("/tmp/tmpnod", S_IFCHR|S_IRWXU|S_IRWXG|S_IRWXO, 5);
 
   return(0);
 }

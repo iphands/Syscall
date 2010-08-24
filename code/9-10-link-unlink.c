@@ -11,7 +11,7 @@ int main()
   char * old_path = "/tmp/testfile-123456";
   char * new_path = "/tmp/testfile2-123456";
 
-  int fd = open(new_path, O_CREAT|O_RDWR, S_IRWXU|S_IRWXG|S_IRWXO);
+  int fd = open(old_path, O_CREAT|O_RDWR, S_IRWXU|S_IRWXG|S_IRWXO);
 
   if (fd == -1) {
     write(1, "Cannot open, permission denied!\n", 32);
@@ -21,8 +21,8 @@ int main()
   write(fd, "Hello World\n", 12);
   close(fd);
 
-  //link(old_path, new_path);
-  //unlink(new
+  unlink(new_path);
+  link(old_path, new_path);
 
   return(0);
 }
